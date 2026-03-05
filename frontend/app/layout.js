@@ -1,5 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import UserProvider from "./context/UserContext";
+import { Toaster } from "react-hot-toast";
+import Navbar from "./ui/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Personal Book Manager",
-  description: "A Platform dedicated for users to have features like book manager.",
+  description: "A Platform dedicated for users to have features like personal book manager.",
+  icon: "/favicon.ico",
 };
 
 export default function RootLayout({ children }) {
@@ -22,7 +26,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <UserProvider>
+          <Navbar />
+          {children}
+        </UserProvider>
+        <Toaster position="top-center" duration={2500} />
       </body>
     </html>
   );

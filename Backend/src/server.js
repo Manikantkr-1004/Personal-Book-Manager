@@ -32,7 +32,7 @@ app.use('/api/book', bookRouter);
 
 // For Non-exist Route Handling
 app.all('/*splat', (req, res) => {
-    res.status(404).json({ message: 'Route not found' });
+    res.status(404).json({ message: 'Route not found', error: `${req.url} Not A Valid Route` });
 });
 
 // For All Error Handling

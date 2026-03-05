@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { UserModel } from "../models/User.js";
-import { isEmailValid } from "../utils/emailPattern.js";
+import { isEmailValid } from "../utils/EmailPattern.js";
 
 const generateJwtToken = (user) => {
     return jwt.sign(
@@ -17,7 +17,7 @@ const authCookieName = "auth-token";
 const authCookieOptions = {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: process.env.NODE_ENV === 'production' ? "none" : "lax",
+    sameSite: "lax",
     maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
     path: '/',
     signed: true,
@@ -45,7 +45,7 @@ export const registerUser = async (req, res) => {
             name,
             email,
             password: hashedPassword,
-            image: `https://api.dicebear.com/9.x/toon-head/svg?seed=${name}`,
+            image: `https://api.dicebear.com/9.x/toon-head/png?seed=${name}`,
         });
         await newUser.save();
 
@@ -85,11 +85,10 @@ export const loginUser = async (req, res) => {
         res.json({
             message: 'Login successfull!', data: {
                 user: {
-                    id: user._id,
+                    _id: user._id,
                     name: user.name,
                     email: user.email,
                     image: user.image,
-                    createdAt: user.createdAt,
                 },
             }
         });

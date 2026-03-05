@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+:root{
+    --blue-color: #274582;
+    --red-color: #B9261D;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url('/main.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.fixed-max-width {
+  width: 100%;
+  max-width: 1440px;
+}
+
