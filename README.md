@@ -3,13 +3,19 @@
 A full-stack Personal Book Manager built with the MERN stack and Next.js (App Router).
 This application allows users to manage their personal book collection, track reading status, and gain simple insights through a clean dashboard.
 
----
+> [!NOTE]
+> Since our backend is deployed on Render free account, so it might take 60-120 seconds first time, when our frontend hits backend api first so due to this, frontend can delay or take time to load/doing task in authenticated pages or during login/signup so please wait, it's not a code issue.
+
+
+<img width="1351" height="597" alt="dashboard" src="https://github.com/user-attachments/assets/abf87426-f948-41dd-8dfc-659cb86b28d4" />
 
 ## Deployment
 
 * Frontend: [Vercel](https://kantbookmanager.vercel.app/)
 * Backend: [Render](https://kantbookmanager.onrender.com/)
 * Database: MongoDB Atlas
+
+---
 
 ## ✨ Features
 
